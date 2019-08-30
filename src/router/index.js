@@ -49,9 +49,9 @@ export const constantRoutes = [
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
-      name: 'Dashboard',
+      name: '控制台',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '控制台', icon: 'dashboard' }
     }]
   },
 
@@ -60,12 +60,15 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/auth/rule',
     name: 'auth',
-    meta: { title: 'Auth', icon: 'example' },
+    meta: { title: '权限管理', icon: 'example' },
     children: [
-      { path: 'rule', name: 'Rule', component: ()=>import('@/views/auth/rule/list'), meta: { title: 'Rule', icon: 'table' }},
-      { path: 'rule/add', name: 'add-rule', hide: true, component: ()=>import('@/views/auth/rule/add')},
-      { path: 'rule/edit', name: 'edit-rule', hide: true, component: ()=>import('@/views/auth/rule/edit')},
-      { path: 'group', name: 'Group', component: () => import('@/views/auth/group'), meta: { title: 'Group', icon: 'tree' }}
+      { path: 'admin', name: 'Admin', component: () => import('@/views/auth/admin/list'), meta: { title: '管理员管理', icon: 'tree' }},
+      { path: 'admin/save', name: 'save-admin', hide: true, component: ()=>import('@/views/auth/admin/save')},
+      { path: 'rule', name: 'Rule', component: ()=>import('@/views/auth/rule/list'), meta: { title: '菜单权限', icon: 'table' }},
+      { path: 'rule/save', name: 'save-rule', hide: true, component: ()=>import('@/views/auth/rule/save')},
+      { path: 'group', name: 'Group', component: () => import('@/views/auth/group/list'), meta: { title: '角色组', icon: 'tree' }},
+      { path: 'group/save', name: 'save-group', hide: true, component: ()=>import('@/views/auth/group/save')},
+      { path: 'group/rules', name: 'save-group-rules', hide: true, component: ()=>import('@/views/auth/group/rules')},
     ]
   },
 
